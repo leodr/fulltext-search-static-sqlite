@@ -7,15 +7,6 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState();
 
   useEffect(() => {
-    const workerUrl = new URL(
-      "sql.js-httpvfs/dist/sqlite.worker.js",
-      import.meta.url
-    );
-    const wasmUrl = new URL(
-      "sql.js-httpvfs/dist/sql-wasm.wasm",
-      import.meta.url
-    );
-
     createDbWorker(
       [
         {
@@ -27,8 +18,8 @@ export default function Home() {
           },
         },
       ],
-      workerUrl.toString(),
-      wasmUrl.toString()
+      "/sqlite.worker.js",
+      "/sql-wasm.wasm"
     ).then(setWorker);
   }, []);
 
@@ -37,7 +28,7 @@ export default function Home() {
 
     if (searchQuery && worker) {
       worker.db
-        .query(`SELECT * FROM Product WHERE name LIKE "${searchQuery}%"`)
+        .query(`SELECT * FROM Product WHERE name LIKE "%${searchQuery}%"`)
         .then((result) => {
           if (!cancel) {
             setSearchResults(result);

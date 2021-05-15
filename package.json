@@ -5,8 +5,9 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "seed-database": "ts-node scripts/seed-database",
-    "start": "next start"
+    "seed-database": "ts-node-script scripts/seed-database",
+    "start": "next start",
+    "prepare": "ts-node-script scripts/copy-compiled-assets"
   },
   "dependencies": {
     "next": "10.2.0",
