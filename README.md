@@ -1,4 +1,3 @@
-```md
 # Unsuccessful project
 
 I thought it might be possible to do full-text search with SQLite in the browser
@@ -10,4 +9,3 @@ querying does indeed work, but the whole database is loaded. Then SQL is not
 really all that helpful, we could easily load a JSON file that contains all the
 data we want to search through and use something like
 [Fuse.js](https://fusejs.io/) to perform the search.
-```
