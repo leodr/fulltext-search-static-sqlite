@@ -26,9 +26,11 @@ export default function Home() {
   useEffect(() => {
     let cancel = false;
 
-    if (searchQuery && worker) {
+    if (searchQuery.length > 2 && worker) {
       worker.db
-        .query(`SELECT * FROM Product WHERE name LIKE "%${searchQuery}%"`)
+        .query(
+          `SELECT * FROM Person WHERE name LIKE "%${searchQuery}%" LIMIT 10`
+        )
         .then((result) => {
           if (!cancel) {
             setSearchResults(result);

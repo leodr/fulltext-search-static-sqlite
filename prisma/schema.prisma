@@ -10,8 +10,12 @@ generator client {
     provider = "prisma-client-js"
 }
 
-model Product {
-    id          String @id @default(cuid())
-    name        String
-    description String
+model Person {
+    id       String @id @default(cuid())
+    name     String
+    role     String
+    bio      String
+    imageUrl String
+
+    @@index([name])
 }

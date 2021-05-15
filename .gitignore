@@ -36,3 +36,6 @@ yarn-error.log*
 # compiled assets
 /public/sqlite.worker.js
 /public/sql-wasm.wasm
+
+# database
+/public/database.db
